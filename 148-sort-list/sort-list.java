@@ -10,28 +10,26 @@
  */
 class Solution {
     public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null) {
+        if(head == null || head.next == null){
             return head;
         }
+        else{
+            List<Integer> l = new ArrayList<>();
+            ListNode current = head;
+            while(current != null){
+                l.add(current.val);
+                current = current.next;
+            }
 
-        // Step 1: Convert the linked list to an ArrayList
-        List<Integer> list = new ArrayList<>();
-        ListNode current = head;
-        while (current != null) {
-            list.add(current.val);
-            current = current.next;
+            Collections.sort(l);
+
+             current = head;
+            for(int val : l){
+                current.val = val;
+                current = current.next;
+            }
+
+            return head;
         }
-
-        // Step 2: Sort the ArrayList
-        Collections.sort(list);
-
-        // Step 3: Rebuild the linked list with the sorted values
-        current = head;
-        for (int val : list) {
-            current.val = val;
-            current = current.next;
-        }
-
-        return head;
     }
 }
