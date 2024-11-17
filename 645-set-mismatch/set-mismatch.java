@@ -1,16 +1,18 @@
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        Set<Integer> unqNums = new HashSet<>();
-        int res[] = new int[2];
+        int arr[] = new int[2];
+        Set<Integer> s = new HashSet<>();
         for(var num : nums){
-            if(unqNums.contains(num)){
-                res[0] = (num);
+            if(s.contains(num)){
+                arr[0] = num;
             }
-            unqNums.add(num);
+            s.add(num);
         }
-        for(int num = 1; num <= nums.length; num++){
-            if(!unqNums.contains(num))res[1] = (num);
+        for(int i = 0; i<=  nums.length; i++){
+            if(!s.contains(i)){
+                arr[1] = i; 
+            }
         }
-        return res;
+        return arr;
     }
 }
