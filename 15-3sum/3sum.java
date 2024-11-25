@@ -13,12 +13,12 @@ class Solution {
                     l.add(nums[a]);
                     l.add(nums[b]);
                     al.add(l);
-                    while(a < b && nums[a] == nums[a+1]){
-                        a++;
-                    }
-                    while(a < b && nums[b] == nums[b-1]){
-                        b--;
-                    }
+                    // while(a < b && nums[a] == nums[a+1]){
+                    //     a++;
+                    // }
+                    // while(a < b && nums[b] == nums[b-1]){
+                    //     b--;
+                    // }
                     a++;
                     b--;
                 }else if(nums[a] + nums[b] > -(nums[i])){
