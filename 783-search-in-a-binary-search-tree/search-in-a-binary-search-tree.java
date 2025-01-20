@@ -1,15 +1,26 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
-        return inorder(root, val);
-    }
+        if(root == null) return null;
+        if(root.val == val) return root;
+        TreeNode leftr = searchBST(root.left, val);
+        if(leftr != null) return leftr;
 
-    public TreeNode inorder(TreeNode root, int val) {
-        if (root == null) return null; 
-        if (root.val == val) return root;
-        
-        TreeNode leftResult = inorder(root.left, val); 
-        if (leftResult != null) return leftResult;
-        
-        return inorder(root.right, val); 
+        return searchBST(root.right, val);
     }
+    
 }
