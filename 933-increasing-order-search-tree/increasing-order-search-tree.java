@@ -14,21 +14,23 @@
  * }
  */
 class Solution {
-    ArrayList<Integer> newt = new ArrayList<>();
+    ArrayList<Integer> al = new ArrayList<>();
     public TreeNode increasingBST(TreeNode root) {
-    inorder(root);
-    TreeNode head = new TreeNode(newt.get(0));
-    TreeNode temp = head;
-    for(int i = 1; i<newt.size(); i++){
-        temp.right = new TreeNode(newt.get(i));
-        temp = temp.right;
-    }    
-    return head;
+        inorder(root);
+        TreeNode head = new TreeNode(al.get(0));
+        TreeNode temp = head;
+        for(int i = 1; i < al.size(); i++){
+            temp.right = new TreeNode(al.get(i));
+            temp = temp.right;
+        }
+        return head;
+        
     }
     public void inorder(TreeNode root){
         if(root == null) return;
         inorder(root.left);
-        newt.add(root.val);
+        al.add(root.val);
         inorder(root.right);
+
     }
 }
